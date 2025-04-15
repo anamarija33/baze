@@ -1,0 +1,96 @@
+﻿CREATE TABLE kupci(
+    kupac_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ime TEXT NOT NULL,
+    prezime TEXT NOT NULL,
+    adresa TEXT NOT NULL,
+    grad TEXT NOT NULL
+);
+
+CREATE TABLE dobavljaci(
+    dobavljac_id INTEGER PRIMARY KEY AUTOINCREMENT ,
+    naziv TEXT NOT NULL ,
+    grad TEXT NOT NULL,
+    adresa TEXT NOT NULL
+);
+
+CREATE TABLE kategorije(
+    kategorija_id INTEGER PRIMARY KEY AUTOINCREMENT ,
+    naziv TEXT NOT NULL
+);
+
+CREATE TABLE rekviziti(
+    rekvizit_id INTEGER PRIMARY KEY AUTOINCREMENT ,
+    naziv TEXT NOT NULL,
+    cijena DECIMAL NOT NULL,
+    dobavljac_id INTEGER,
+    kategorija_id INTEGER,
+    FOREIGN KEY (dobavljac_id) REFERENCES dobavljaci(dobavljac_id),
+    FOREIGN KEY (kategorija_id) REFERENCES kategorije(kategorija_id)
+);
+
+CREATE TABLE racuni(
+    racun_id INTEGER PRIMARY KEY AUTOINCREMENT ,
+    datum DATE NOT NULL,
+    kupac_id INTEGER,
+    FOREIGN KEY (kupac_id) REFERENCES kupci(kupac_id)
+);
+
+CREATE TABLE stavke(
+    stavka_id INTEGER PRIMARY KEY AUTOINCREMENT ,
+    kolicina INTEGER NOT NULL ,
+    iznos DECIMAL NOT NULL ,
+    rekvizit_id INTEGER,
+    racun_id INTEGER,
+    FOREIGN KEY (rekvizit_id) REFERENCES rekviziti(rekvizit_id),
+    FOREIGN KEY (racun_id) REFERENCES racuni(racun_id)
+);
+
+
+
+
+
+
+
+
+
+INSERT INTO kupci(ime,prezime,adresa,grad) VALUES('Ivo','Ivić','Ivićeva 29','Zadar'),('Mario','Marić','Marićeva 2','Zadar'),('Martina','Martinović','Martinićina 2','Zadar'),('Iva','Ivić','Ivina 3','Zadar');
+INSERT INTO kategorije(naziv) VALUES('oprema za timske sportove'),('oprema za individualne sportove'),('fitness oprema'),('oprema za vodene sportove');
+INSERT INTO dobavljaci(naziv,grad,adresa) VALUES('GymPro','Zadar','Dobova 2'),('FitBro','Zadar','Fitova 5'),('SportGuy','Zadar','Runova 7'),('Ciclo','Zadar','Ciclova 6');
+INSERT INTO rekviziti(naziv, cijena, dobavljac_id, kategorija_id) VALUES ('Nogometna lopta',5.2,3,1),('Bicikl',699.99,4,2),('Joga prostirka', 20.00, 2, 3),('Rukometna lopta', 180.00, 3, 1),('Uteg 5kg',23.64,1,3);
+INSERT INTO racuni(datum, kupac_id) VALUES ('17/12/2015',1),('15/04/2025',1),('12/03/2025',1),('11/02/2025',1),('10/01/2025',3),('10/01/2025',2);
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 1,Rekviziti.cijena * 1,1,1 FROM rekviziti WHERE rekvizit_id = 1;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,2,1 FROM rekviziti WHERE rekvizit_id =2;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,3,1 FROM rekviziti WHERE rekvizit_id =3;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,4,1 FROM rekviziti WHERE rekvizit_id =4;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,2,2 FROM rekviziti WHERE rekvizit_id =2;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,1,2 FROM rekviziti WHERE rekvizit_id =1;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,3,2 FROM rekviziti WHERE rekvizit_id =3;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,1,3 FROM rekviziti WHERE rekvizit_id =1;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,2,3 FROM rekviziti WHERE rekvizit_id =2;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,3,3 FROM rekviziti WHERE rekvizit_id =3;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,2,4 FROM rekviziti WHERE rekvizit_id =2;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,3,4 FROM rekviziti WHERE rekvizit_id =3;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,4,4 FROM rekviziti WHERE rekvizit_id =4;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,2,5 FROM rekviziti WHERE rekvizit_id =2;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,3,5 FROM rekviziti WHERE rekvizit_id =3;
+INSERT INTO stavke(kolicina, iznos, rekvizit_id, racun_id) SELECT 2,Rekviziti.cijena * 2,4,5 FROM rekviziti WHERE rekvizit_id =4;
+
+
+
+
+
+
+
+
+SELECT SUM(kolicina) AS ukupno_prodanih_artikala
+FROM stavke ;
+SELECT SUM(s.kolicina) AS fitness_artikli_prodano FROM stavke s JOIN rekviziti r ON s.rekvizit_id = r.rekvizit_id
+    JOIN kategorije k ON r.kategorija_id = k.kategorija_id WHERE k.kategorija_id =3;
+
+SELECT k.ime, k.prezime, r.racun_id
+FROM kupci k
+JOIN racuni r ON k.kupac_id = r.kupac_id;
+
+SELECT d.naziv AS dobavljac, r.naziv AS artikl, SUM(s.kolicina) AS prodano_art FROM dobavljaci d
+JOIN rekviziti r ON d.dobavljac_id = r.dobavljac_id JOIN stavke s ON r.rekvizit_id = s.rekvizit_id GROUP BY d.naziv, r.naziv;
+
