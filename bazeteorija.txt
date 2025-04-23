@@ -1,0 +1,367 @@
+Podatak – činjenica koja se može spoznati opažanjem, sam nema značenje,
+obradom I organizacijom podataka, daje se značenje(kontekst) podacima, dobivamo informacije.
+Znanje čine organizirane informacije koje zajedno imaju neko značenje, a one se mogu koristiti kako bi se donosile neke odluke
+
+
+Svojstva informacija: kvaliteta,kvantiteta,vrijednost u vremenu
+
+Sustav – uređeni skup koji se sastoji od najmanje dva elementa, koji zajedno ostvaruju neku funkciju cjeline
+
+informacijski sustav – obavlja transformaciju ulaznih informacija u izlazne informacije
+
+poslovni informacijski sustav – prikuplja, pohranjuje, obrađuje I isporučuje informacije na način da su dostupni svima u organizaciji tko se želi I smije koristiti 
+
+materijalno-tehničke komponente(hardware) – strojevi, uređaji I sredstva namjenjena obradi podataka
+nematerijalne komponente(software) – ukupnost ljudskog znanja ugrađenog u  strojeve, opremu I uređaje
+
+osnovne funkcije poslovnog informacijskog sustava: 
+- priprema informacijske podloge za donošenje poslovnih odluka
+- dokumentiranje I pohranjivanje generiranih informacija
+
+nestrukturirani podatci – zvuk, fotografija, animirana grafija itd, podatci jednog objekta zapisuju se u jednoj samostalnoj datoteci
+polustrukturirani – tekstualni ili multimedijski dokumenti
+- često se pohranjuju u baze podataka za obradu velike količine podataka
+strukturirani podatci – podatci objekata su potpuno strukturirani, svi objekti istog tipa imaju jednake atribute – računi,narudžbe, opisi proizvoda
+
+datoteka – najstariji I najjednostavniji oblik organiziranja I pohranjivanja podataka
+
+baza podatka – skup trajno pohranjenih podataka informacijskog sustava
+- papir(adresar,kartoteka), tvrdi disk
+-podaci su međusobno povezani, ovisni, pohranjeni bez redundancije
+- organizirani skup podataka
+
+- tablica  - temeljni objekt baze podataka, u nju se pohranjuju podatci , sastavljena od redaka I stupaca
+- jedan redak tablice – zapis
+-zapis – sadrži podatke o svojstvima svakog od članova baze
+- jedan stupac- polje
+- polje sadrži srodne podatke
+
+plošna baza -jednostavna baza
+
+relacijski model baze podataka – nudi bolju organizaciju I lakše rukovanje bazama podataka
+- skupinu podataka rastavlja na manje logički povezane cjeline (postupak- normalizacija)
+- podatke svake cjeline pohranjuje u zasebnu tablicu
+- podatke iz različitih tablica povezuje preko polja
+- tablice se povezuju preko polja – primarni ključ
+-primarni ključ sadrži vrijednosti jedinstvene za svaki od zapisa u tablici
+
+DBMS- sustav za upravljanje bazom podataka
+- mysql, access, clipper,dbase,oracle,paradox
+
+tablice – osnovni elementi relacijske baze podataka
+obrasci(forms) – grafičko sučelje između korisnika I baze
+upiti(queries)- objekti koji omogućavaju biranje, razvrstavanje,izdvajanje I izmjene podataka iz jedne ili više tablica
+izvještaji(reports)- obrasci pripremljeni za ispis na pisaču
+makro naredbe(macros)- omogućava automatizaciju zadataka, dodaje funkcije u obrasce,izvješća I kontrole
+moduli-skup funkcija,rutina,globalnih varijabli koje definira korisnik
+
+
+dizajniranje baze podataka:
+- određivanje svrhe baze podataka
+- pronalaženje I organiziranje potrebnih podataka
+- dijeljenje podataka u tablice
+-pretvaranje srodnih podataka  stupce
+- određivanje primarnih ključeva
+- postavljanje odnosa između tablica
+- finaliziranje – detektiranje problema
+- primjena pravila o normalizaciji – provjera strukture tablice
+
+
+relacije : 
+1:1 – jedan stupac u tablici A odgovara jednom stupcu u tablici B
+1:N – više redaka u tablici B se povezuje s 1 retkom u tablici A
+N:M više redaka u tablici A su povezani u više redaka u tablici B
+
+Sustav za upravljanje bazama podataka SUBP(DBMS)
+-paket programske podrške koji omogućava upravljanje podacima u bazama podataka, upravlja samim podacima, formatom podatka, nazivima polja, strukturom zapisa I datotečnom strukturom, dmbs koriste jezike kao što je SQL za interakciju s bazom
+
+Upravljanje:
+- definiranje podataka – stvaranje, modificiranje I uklanjanje definicija koje opisuju organizaciju podataka
+- ažuriranje – upisivanje, modificiranje I brisanje podataka
+- dohvaćanje podatka – pripreljeni za daljnju obradu
+- administracija – praćenje korisnika, primjena zaštite podataka, praćenje performansi, očuvanje integriteta podataka,kontrola I ispravljanje grešaka
+
+
+modeli: relacijski
+- podaci I veze među podacima se prikazuju tablicama koje se sastoje od redaka I stupaca
+objektni
+- baza je predočena kao skup trajno pohranjenih objekata koji se stastoje od svojih atributa I metoda za rukovanje, svaki objekt pripada nekoj klasi, između klasa se uspostavljaju veze nasljeđivanja, agregacije itd
+hijerarhijski
+-mrežni model, predočena je jednim stablom ili skupom stabala, svako stablo se sastoji od čvorova I veza, nadređeni-podređeni,
+
+mrežni
+- predočena mrežom koja se sastoji od čvorova I usmjerenih lukova, čvorovi su tipovi zapisa, a lukovi veze između tipova zapisa
+
+SQL- structured query language- definiranje I upravljanje podacima te postavljanje upita na bazu
+
+datotečni sustav- tip pohranjivanja I organiziranja računalnih datoteka na medij za pohranu(tvrdi disk)
+- skup pravila za upravljanje datotekama
+
+najpoznatiji datotečni sustavi: FAT, NTFS, ext2, HFS Plus
+
+razvojni ciklus baze podataka: https://snagalokalnog.ba/kako-izgleda-proces-razvoja-baze-podataka/
+
+
+
+Dokumentacija
+korisnička dokumentacija – namjenjena korisnicima dokumentacije
+razvojna dokumentacija – namjenjena softverskim inžinjerima
+projektna dokumentacija – opisani rezultati projektiranja baze 
+
+projektna dokumentacija na:
+konceptualnoj razini – opsuje konceptualnu shemu baze
+logičkoj razini – dokumentira logičku shemu baze
+fizičkoj razini – sadrži fizičku shemu baze
+
+Tekstovni prikaz relacijske sheme – građa jedne relacije prikazuje se jednim retkom teksta koji sadrži ime relacije te (atributi,atribut,atribut)
+
+STUDENT(JMBAG, PREZIME, IME, GODINA STUDIJA)
+PREDMET (ŠIFRA PREDMETA, NASLOV, SEMESTAR, ECTS-BODOVI)
+UPISAO (JMBAG, ŠIFRA PREDMETA, DATUM UPISA, OCJENA).
+
+
+Grafički prikaz relacijske sheme – opisuje se dijagramom koji se sastoji od pravokutnika I strelica
+jedan pravokutnik – jedna relacija, sadrži ime relacije I imena atributa jedno ispod drugog
+ključ je označen ikonom ili kraticom
+strelice spajaju atribut u jednoj relaciji (fk)koji je ključ u drugoj relaciji(pk)
+
+
+
+relacijska baza podataka – skup  u vremenu promjenjivih relacija opisanih u shemi baze podataka, veza se ostvaruje preko vrijednosti atributa
+
+entitet-veza model – grafički prikaz međusobno povezanih grupa podataka 
+agregirani tip entiteta – tip veze između svaju ili više tipova entiteta tretira kao novi tip entiteta
+povratni tip veze- povezuje jedan tip entiteta sam sa sobom
+generalizacijski tip veze- povezuje jedan ili više tipova entiteta(podtip) s jednim tipom entiteta
+
+
+entitet- stvar koja ima stvarno ili pojedinačno postojanje, ima realnost I svojstvenost u fizičkom postojanju ili mislima
+klasifikacija- razvrstavanje entiteta na zajedničke skupove
+tip entiteta – dobiva se procesom klasifikacije, inenovana klasa entiteta, predstavnik klase na modelu podataka
+klasa entiteta – pojedinačno pojavljivanje entiteta
+uzorkovanje – iz odabranog tipa entiteta izdvajamo jedno pojavljivanje entiteta kako bi ga promatrali detaljnije
+jak tip entiteta- ima svoj primarni ključ I nije ovisan o drugim tipovima entiteta u modelu podataka
+slab tip entiteta – tip entiteta koji je na neki način ovisan o drugom tipu entiteta, ne može postojati bez drugog entiteta
+
+
+zapis relacije: Naziv relacije(atribut1,atribut2,…)
+npr Osoba(#OIB, ime,prezime,godina_rođenja)
+
+
+atribut je imenovano svojstvo nekog entiteta, pridružuje entitetu neku vrijednost
+- svaki atribut ima svoje ime
+domena atributa- skup dopuštenih vrijednosti za atribut
+
+može biti:
+atomski – jednostavan atribut- ne može se rastaviti
+složeni- atribut spojen od više atributa
+viševrijednosan- jednom tipu entiteta odgovara više vrijednosti iz tipa vrijednosti
+izvedeni – do njegovih vrijednosti se može doći operacijama iz drugih atributa u bazi podataka
+nul vrijednosti – neodređena vrijednost nekog entiteta
+
+
+operacije za pretraživanje baze podataka:
+-select podskupova  - vrijednosti iz tipa vrijednosti 
+			-entiteta iz tipa entiteta
+			-veza iz tipa veze
+			-atributa iz tipa entiteta ili tipa veze
+
+operatori relacijske algebre za ažuriranje baze podataka:
+-unija
+-razlika
+
+operatori pogodni za izvješćivanje iz baze podatka su:
+- projekcija
+-selekcija
+-kontrolirano spajanje(join)
+-nekontrolirano spajanje
+-presjek
+-dijeljenje
+
+
+
+
+
+SQL  - jezik koji se sastoji od riječi na engleskom jeziku koje se mogu podijeliti u 3 grupe
+- dcl – za kontrolu podataka, kontrola pristupa podacima
+- dml – jezik za manipulaciju podacima
+- ddl – jezik za definiranje podataka, stvaranje baze,tablica itd
+
+
+CREATE -stvara objekt u bazi, npr tablicu
+DROP briše postojeći objekt
+ALTER dozvoljava izmjenu postojećeg objekta
+
+npr ALTER TABLE neka_tablica ADD neki_atribut INTEGER
+DROP TABLE neka tablica
+DROP DATABASE
+DROP COLUMN ?
+
+GRANT daje ovlasti korisniku za rad s objektima baze
+REVOKE uklanja ili smanjuje ovlasti korisniku
+
+INSERT – ubacuje retke u postojeću tablicu
+UPDATE
+MERGE – spaja podatke iz više tablica, koristi se u kombinaciji s INSERT I UPDATE
+DELETE – DELETE FROM ime tablice WHERE uvjet 
+delete bez uvjeta briše sve Iz tablice
+TRUNCATE – briše sve podatke iz tablice
+ - TRUNCATE TABLE imetbalice
+BEGIN WORK
+COMMIT
+ROLLBACK
+SELECT – dohvaća redak iz tablice
+- uz select:
+FROM iz koje tablice treba dohvatiti podatke
+WHERE koje retke treba dohvatiti
+GROUP BY slaže dobivene retke u grupe
+HAVING identifikacija redaka koje treba dohvatiti nakon group by
+ORDER BY identificira stupac ili stupce kojima će rezultirani skup biti sortiran
+
+
+ograničenje – osiguranje integriteta baze podataka- pravila po kojima se podaci unose:
+not null
+check- ograničava raspon vrijednosti koji se može unijeti u neki stupac
+CHECK(ime_stupca BETWEEN 1 AND 20202)
+unique
+primary key
+foreign key
+JMBAG INTEGER REFEERENCES Studenti(JMBAG),
+default
+collate
+generated value
+
+
+primarni ključ – podatak koij omogućava razlikovanje pojedinačnih zapisa, vrijednost stupca koj ina jedinstven način određuje redak u tablici
+
+normalizacija- proces organiziranja podataka s ciljem minimiziranja redundantnosti – proces kreiranja učinkovite, pouzdane I fleksibilne baze podataka
+- temelji se na matematički dokazanim tvrdnjama
+pravila – normalne forme:
+1NF – prva normalna forma – svaka vrijednost koja se pojavljuje u stupcu mora biti atomarna(jednostruka I jednostavna), svi reci imaju isti broj polja, jedna vrijendost ne može bit skup podataka
+2NF- atributi moraju biti potpuno funkcionalno ovisni o primarnom ključu, parcijalna ovisnost je nepoželjna
+3NF
+BCNF – boyce-coddova
+4NF
+5NF
+
+
+
+SINTAKSA:
+
+SELECT
+[DISTINCT]
+[TOP n]
+popis_stupaca
+[INTO nova_tablica]
+FROM ime_tablice
+[WHERE izraz_za_traženje]
+[GROUP BY izraz_za_grupiranje]
+[HAVING izraz_za_traženje]
+[ORDER BY izraz_za_sortiranje []ASC|DESC]]
+
+
+DISTINCT – odabire sve različite retke uključujući null koji zadovoljavaju neki uvjet
+GROUP BY – grupira sve iste vrijednosti I vraća iz svake grupe po jedan podatak
+
+
+SELECT TOP 3 * FROM Studenti
+SELECT * FROM Studenti LIMIT 3
+
+INSERT INTO imetablice(popis stupaca)  VALUES (popis vrijednosti)
+
+
+Unos podataka pomoću select
+SELECT lista_polja
+INTO ime_nove_tablice
+FROM ime_izvorne_tablice
+[ WHERE uvjet ]
+[ GROUP BY izraz ]
+HAVING uvjet
+[ ORDER BY izraz ]
+
+
+
+UPDATE ime_tablice
+SET ime_stupca = nova_vrijednost
+[, ime_stupca = nova_vrijednost ... ]
+[ WHERE uvjet ]
+
+
+CREATE VIEW- kreiranje virtualnog pogleda
+
+CREATE VIEW ime_pogleda AS
+SELECT select_izraz
+FROM ime_tablice WHERE uvjet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE STUDENT
+(JMBAG NUMERIC(10) UNSIGNED NOT NULL,
+PREZIME CHAR(20),
+IME CHAR(20),
+GODINA_STUDIJA ENUM('1','2','3','4','5'),
+PRIMARY KEY(JMBAG))
+ENGINE=INNODB;
+CREATE TABLE PREDMET
+(SIFRA_PREDMETA NUMERIC(5) UNSIGNED NOT NULL,
+NASLOV CHAR(80),
+SEMESTAR ENUM('Z','L'),
+ECTS_BODOVI NUMERIC(2) UNSIGNED,
+PRIMARY KEY(SIFRA_PREDMETA))
+ENGINE=INNODB;
+CREATE TABLE UPISAO
+(JMBAG NUMERIC(10) UNSIGNED NOT NULL,
+SIFRA_PREDMETA NUMERIC(5) UNSIGNED NOT NULL,
+DATUM_UPISA DATE,
+OCJENA ENUM('2','3','4','5'),
+PRIMARY KEY(JMBAG,SIFRA_PREDMETA),
+INDEX R_JMBAG_IND (JMBAG),
+INDEX R_SP_IND (SIFRA_PREDMETA),
+FOREIGN KEY (JMBAG) REFERENCES STUDENT(JMBAG),
+FOREIGN KEY (SIFRA_PREDMETA)
+REFERENCES PREDMET(SIFRA_PREDMETA))
+ENGINE=INNODB;
