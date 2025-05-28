@@ -392,8 +392,8 @@ relaciji potpuno funkcionalno ovisan
 
 
 
-
-
+https://www.guru99.com/hr/dbms-transaction-management.html
+https://www.mev.hr/wp-content/uploads/2025/04/Relacijske-baze-podataka-i-SQL.pdf
 
 
 
