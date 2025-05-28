@@ -295,6 +295,99 @@ FROM ime_tablice WHERE uvjet
 
 
 
+Integritet - korektnost i konzistentnost podataka
+Korektnost - svaki pojedini podatak ima ispravnu vrijednost
+Konzistentnost - različiti podatci međusobno usklađeni, ne protuslove jedan drugome
+
+Zaštita od narušavanja integriteta – ograničenja (engl. constraints):
+• Projektant baze uvodi ograničenja tako da ih upisuje u fizičku shemu baze, DBMS ih uključuje u konačnu
+realizaciju baze
+• Kod svake promjene podataka DBMS automatski provjeravati jesu li sva ograničenja zadovoljena
+• Ako neko ograničenje nije zadovoljeno - DBMS neće izvršiti traženu promjenu - aplikaciji šalje poruku o
+pogrešci
+
+Vrste ograničenja:
+• Ograničenja za integritet domene - izražavaju činjenicu da vrijednost atributa mora biti iz
+odgovarajuće domene
+--• vrijednost atributa mora biti iz odgovarajuće domene
+•- vrijednost primarnog atributa ne smije biti prazna
+
+-- NOT null
+-- ENUM
+-- BETWEEN
+• Ograničenja za čuvanje integriteta unutar relacije - čuvaju korektnost veza između atributa- npr funkcionalne ovisnosti
+--dvije n-torke u istoj relaciji ne smiju imati jednaku vrijednost primarnog ključa
+--UNIQUE
+--PRIMARY KEY
+--CREATE UNIQUE INDEX
+--Indeks se koristi za brzo dohvaćanje podataka iz baze, brže pretraživanje baze
+primjer:
+CREATE INDEX naziv_indeksa
+ON naziv_tablice (stupac1, stupac2, ..)
+
+• Ograničenja za čuvanje referencijalnog integriteta - služe zato da se očuva konzistentnost
+veza između relacija
+--ograničenja koja se odnose na strani ključ
+
+Ograničenja za integritet domene:
+• vrijednost atributa mora biti iz odgovarajuće domene
+• vrijednost primarnog atributa ne smije biti prazna
+
+- NOT null
+- ENUM
+- BETWEEN
+
+Relacijska shema na koncizan način opisuje logičku strukturu baze u skladu s relacijskim modelom
+- od kojih se relacija sastoji cijela baza i od kojih se atributa sastoji svaka pojedina relacija
+- Iz sheme se ne vide tipovi atribut
+
+Rječnik podataka je tablica u kojoj su popisani svi atributi, a za svakog od njih je definiran tip i opisano mu je
+značenje
+-isti atribut upišemo samo jednom
+
+
+ograničenja relacijskog modela:
+Svojstvo 1. Svi elementi skupa su različiti-> Integritet ključnih (key) atributa
+Svojstvo 2. Poredak elemenata skupa je proizvoljan.
+Svojstvo 3. Relacija je podskup Kartezijevoga produkta skupova -postaviti
+ograničenja koja će izdvojiti semantički moguće podskupove
+
+integritet ključnih atributa:
+1. Pravilo - Cjelovitost ključa (integritet entiteta, provjera ključa, postojanje entiteta) - ako je A dio primarnog ključa, ne smije bit nul, svi atributi u ključu
+moraju imati realnu vrijednost
+2. Pravilo - Cjelovitost ovisnosti (referencijski integritet, provjera zavisnosti)
+
+
+normalizacija:
+1nf - svaka vrijednost koja se pojavljuje u stupcu mora biti atomarna, svi redci moraju imati isti  broj polja
+2nf - 1nf + redci moraju biti jednoznačno određeni i svi atributi moraju biti potpuno funkcionalno ovisni o primarnom ključu, nema parcijalnih ovisnosti
+3nf - 2nf + ne smije biti tranzitivne ovisnosti o primarnom ključu
+BCNF – zahtijeva da ako postoji stupac o kojem je neki drugi stupac ovisan onda on mora biti ključ
+u tablici bcnf => zadovoljava 3nf
+
+funkcionalna ovisnost: 
+- svi atributi moraju ovisiti o primarnom ključu
+potpuno funkcionalna ovisnost:  B je funkcionalno ovisan o A, no B nije funkcionalno ovisan ni o jednom pravom podskupu od A
+- atributi koji nisu potpuno ovisni o o primarnom ključu → parcijalna ovisnosti
+-- razdvojiti na 2 ili više entiteta
+
+(2NF) ako je svaki njezin ne-primarni atribut potpuno
+funkcionalno ovisan o primarnom ključu; relacija je u 2NF ako u njoj nema parcijalnih ovisnosti
+atributa o primarnom ključu
+2NF ima smisla jedino ako je primarni ključ relacije složen, ako je ključ jednostavan - već je 2nf
+
+
+tranzitivne vrijednosti:
+ŠIFRA PREDMETA → OIB NASTAVNIKA → BROJ SOBE NASTAVNIKA
+vakav niz, pod uvjetom da srednji atribut nije kandidat za ključ, naziva se tranzitivna ovisnost
+- uvodi se 3nf
+- razbijanje na više entiteta
+- nastavnik(#oib nastavnika, br sobe)
+
+bcnf
+Determinanta je atribut ili kombinacija atributa u nekoj relaciji o kojoj je neki drugi atribut u istoj
+relaciji potpuno funkcionalno ovisan
+- ako ima kandidata za ključ, razdvajaju se u entitete i postaju ključevi
 
 
 
